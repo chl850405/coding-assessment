@@ -1,8 +1,7 @@
 //Guidelines for the quiz
-//You will get 3 minutes to complete the quiz
-//Once an answer is selected the next question will be presented
-//If a question is answered incorrectly time is subtracted from the clock
-//Once all answers are completed or the time reaches 0 the quiz is over
+//Try to answer all the questions before time runs out
+//if you answer a question wrong you time will be subtracted form the clock
+// Once all questions are answered or the time runs out the game is over
 
 //Which declaration defines a document?
 //<!DOCTYPE html>
@@ -22,4 +21,20 @@
 //mkdir
 //git commit -m
 
+//What does CSS stand for?
+//Colorful Style Sheets
+//Cascading Style Sheets
+//Cascading Style Snip-its
+//Cascading Silk Sheets
 
+//What is does the box modle consist of?
+// Margins, Hieght, Padding, Content
+//Margins, Boarders, Width, Content
+//Background, Boarders, Padding, Content
+//Margins, Boarders, Padding, Content
+
+//An example of a Pseudo Element is
+// :hover
+// [1,2,3]
+// @media
+// body {}

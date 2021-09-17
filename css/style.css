@@ -1,0 +1,12 @@
+*/ {
+    margin: 0;
+    padding: 0;
+    
+}
+/*Start Button Styles*/
+.start-btn button {
+    font-size: 28;
+    font-weight: bold;
+    background-color: blueviolet;
+    padding: 15px 30px;
+}
