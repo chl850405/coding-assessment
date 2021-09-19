@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coding Quiz</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>  
+
 <body>
-  <div class="intro-box">
-    <h1>Coding Challenge</h1>
+  <div class="container">
+
+    <div id="intro" class="hide">
       <p>Try to answer all the questions before time runs out.</p>
-      <p>If you answer a question wrong your time will be subtracted form the clock.</p>
-      <p>Once all questions are answered or the time runs out the game is over.</p> 
-  </div>  
+      <p>If you answer a question incorrectly, 15 seconds will be subtracted from the clock.</p>
+      <p>Once all questions are answered or if time runs out the game is over.</p> 
+    </div>
   
-  <div class="start-btn"><button>Start</button></div>
-
-
-<script src="./js/script.js"></script>
+    <div id="q-container" class="hide">
+      <div id="score" class="hide, score">View High Score</div>
+      <div id="question" class="hide">Question</div>
+      <div id="time" class="hide, time">Time</div>
+      <div id="option-btn" class="btn-grid">
+      <button class="btn">Option1</button>
+      <button class="btn">Option2</button>
+      <button class="btn">Option3</button>
+      <button class="btn">Option4</button>
+    </div>
+    <button id="start-btn">Get Started</button>
+  </div>
+  
 </body>
-
+<script src="./js/script.js"></script>
 </html>

@@ -1,12 +1,66 @@
-*/ {
-    margin: 0;
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Start Body Styles*/
+body {
     padding: 0;
-    
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
-/*Start Button Styles*/
-.start-btn button {
-    font-size: 28;
-    font-weight: bold;
-    background-color: blueviolet;
-    padding: 15px 30px;
+/*End Body Styles*/
+/*Start Container styles*/
+.container {
+    width: 800px;
+    max-width: 80%;
+    height: 400px;
+    max-height: 80%;
+    background-color: seashell;
+    box-shadow: 0 0 10px 2 px;
+    border: 2px solid blueviolet;
+    border-radius: 5px;
 }
+
+#option-btn {
+    width: 80%;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.btn {
+    cursor: pointer;
+}
+#start-btn {
+    display: flex;
+    font-size: 20px;
+    background: seashell;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid purple;
+}
+
+#start-btn:active,
+.btn:active {
+    background-color: rgb(150, 122, 216);
+    -webkit-box-shadow: inset 0px 0px 5px  rgb(150, 122, 216);
+    -moz-box-shadow: inset 0px 0px 5px  rgb(150, 122, 216);
+    box-shadow: inset 0px 0px 5px  rgb(150, 122, 216)1;
+    outline: none;
+}
+/* End Intro Box and Start Button Styles*/
+
+/*Start Quiz Box Styles*/
