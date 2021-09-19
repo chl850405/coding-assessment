@@ -1,40 +1,171 @@
-//Guidelines for the quiz
-//Try to answer all the questions before time runs out
-//if you answer a question wrong you time will be subtracted form the clock
-// Once all questions are answered or the time runs out the game is over
+var startButton = document.getElementById('start-btn');
+var introContainerEl = document.getElementById('intro');
+var questionContainerEl = document.getElementById('q-container');
+var questionEl = document.getElementById('question');
+var optionButtonEl = document.getElementById('option-btn');
+var timerEl = document.getElementById('time');
 
-//Which declaration defines a document?
-//<!DOCTYPE html>
-//<header>
-//<h1>
-//<!doctype>
+let shuffledQuestions, currentQuestion
 
-//What does HTML stand for?
-//Hyper Text Markup List
-//Hyper Text Markup Language
-//Hyper Touch Markup Language
-//Hyper Text Mandate Language
+startButton.addEventListener('click', startGame)
 
-//How do you add a folder using the terminal?
-//touch
-//git add .
-//mkdir
-//git commit -m
+function countdown() {
+  var timeLeft = 2:00;
 
-//What does CSS stand for?
-//Colorful Style Sheets
-//Cascading Style Sheets
-//Cascading Style Snip-its
-//Cascading Silk Sheets
+  var timeInterval = setInterval(function() {
+    if(timeLeft > 1) {
+      timerEl.textContent = timeLeft + 'seconds remaining';
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent =timeLeft + 'second remaining';
+      timeLeft--;
+    } else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+      displayMessage();
+    }
+  }, 1000);
+}
 
-//What is does the box modle consist of?
-// Margins, Hieght, Padding, Content
-//Margins, Boarders, Width, Content
-//Background, Boarders, Padding, Content
-//Margins, Boarders, Padding, Content
+function displayMessage() {
+  var wordCount = 0;
+}
 
-//An example of a Pseudo Element is
-// :hover
-// [1,2,3]
-// @media
-// body {}
+function startGame() {
+    console.log('intro')
+    startButton.classList.add('hide')
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerEl.classList.remove('hide')
+    introContainerEl.classList.remove('hide')
+    setNextQuestion()
+}
+
+function setNextQuestion () {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+  
+}
+
+function showQuestion(question) {
+    questionEl.innerText = question.question
+    question.options.forEach(option => {
+        var button = document.createElement('button')
+        button.innerText = option.text
+        button.classList.add('btn')
+        if (option.correct) {
+            button.dataset.correct = option.correct
+      }
+      button.addEventListener('click', selectOption)
+      optionButtonEl.appendChild(button)
+    })
+}
+
+function resetState() {
+  optionButtonEl.classList.add('hide')
+  while (optionButtonEl.firstChild) {
+    optionButtonEl.removeChild
+    (optionButtonEl.firstChild)
+  }
+}
+
+function selectOption(e) {
+  var selectedButton = e.target
+  var correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(optionButtonEl.children). forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+    
+  } else {
+    element.classList.add('wrong')
+    
+  }
+}
+
+function clearStatusClass(element) {
+  if (correct) {
+    element.classList.remove('correct')
+  } else {
+    element.classList.remove('wrong')
+  }
+}
+
+
+
+// var para = document.createElement('p');
+// var node = document.createTextNode("Try to answer all the questions before time runs out.
+// text If you answer a question incorrectly, 15 seconds will be subtracted from the clock.
+// Once all questions are answered or if time runs out the game is over.");
+  
+// para.appendChild(node);
+
+
+
+var questions = [
+    {
+    question: "Which declaration defines a document?",
+    options: [
+    { text: '<!DOCTYPE html>', correct: true},
+    { text: '<header>', correct: false},
+    { text: '<h1>', correct: false},
+    { text: '<!doctype>', correct: false}
+    ]
+  },  
+
+    {
+    question: "What does HTML stand for?",
+    options: [
+    {text: 'Hyper Text Markup List', correct: false},
+    {text: 'Hyper Text Markup Language', correct: true},
+    {text: 'Hyper Touch Markup Language', correct: false},
+    {text: 'Hyper Text Mandate Language', correct: false}
+    ]
+  },
+
+    {
+    question: 'How do you add a folder using the terminal?',
+    options: [
+    {text: 'touch', correct: false},
+    {text: 'git add .', correct: false},
+    {text: 'mkdir', correct: true},
+    {text: 'git commit -m', correct: false}
+    ]
+},
+
+    {
+    question: 'What does CSS stand for?',
+    options: [
+    {text: 'Colorful Style Sheets', correct: false},
+    {text: 'Cascading Style Sheets', correct: true},
+    {text: 'Cascading Style Snip-its', correct: false},
+    {text: 'Cascading Silk Sheets', correct: false}
+    ]
+},
+
+    {
+    question: 'What is does the box modle consist of?',
+    options: [
+    {text: 'Margins, Hieght, Padding, Content', correct: false},
+    {text: 'Margins, Boarders, Width, Content', correct: false},
+    {text: 'Background, Boarders, Padding, Content', correct: false},
+    {text: 'Margins, Boarders, Padding, Content', correct: true}
+    ]
+},
+    {
+    question: 'An example of a Pseudo Element is..',
+    options: [
+    {text: ':hover', correct: true},
+    {text: '[1,2,3]', correct: false},
+    {text: '@media', correct: false},
+    {ext: 'body {}', correct: false}
+    ]
+}
+]
+startButton.onclick = countdown
