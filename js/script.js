@@ -9,28 +9,6 @@ let shuffledQuestions, currentQuestion
 
 startButton.addEventListener('click', startGame)
 
-function countdown() {
-  var timeLeft = 2:00;
-
-  var timeInterval = setInterval(function() {
-    if(timeLeft > 1) {
-      timerEl.textContent = timeLeft + 'seconds remaining';
-      timeLeft--;
-    } else if (timeLeft === 1) {
-      timerEl.textContent =timeLeft + 'second remaining';
-      timeLeft--;
-    } else {
-      timerEl.textContent = '';
-      clearInterval(timeInterval);
-      displayMessage();
-    }
-  }, 1000);
-}
-
-function displayMessage() {
-  var wordCount = 0;
-}
-
 function startGame() {
     console.log('intro')
     startButton.classList.add('hide')
@@ -40,13 +18,30 @@ function startGame() {
     introContainerEl.classList.remove('hide')
     setNextQuestion()
 }
+//time starts when Get Started is pushed
+function countdown() {
+  var timeLeft = 60;
 
+  var timeInterval = setInterval(function() {
+    if(timeLeft > 1) {
+      timerEl.textContent = timeLeft + 'seconds remaining';
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent =timeLeft + 'seconds remaining';
+      timeLeft--;
+    } else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+}
+//show the next question
 function setNextQuestion () {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
   
 }
-
+//displays question
 function showQuestion(question) {
     questionEl.innerText = question.question
     question.options.forEach(option => {
@@ -68,7 +63,7 @@ function resetState() {
     (optionButtonEl.firstChild)
   }
 }
-
+//option selection
 function selectOption(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
@@ -96,18 +91,7 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
   }
 }
-
-
-
-// var para = document.createElement('p');
-// var node = document.createTextNode("Try to answer all the questions before time runs out.
-// text If you answer a question incorrectly, 15 seconds will be subtracted from the clock.
-// Once all questions are answered or if time runs out the game is over.");
-  
-// para.appendChild(node);
-
-
-
+//array of questions
 var questions = [
     {
     question: "Which declaration defines a document?",
