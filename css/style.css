@@ -42,7 +42,6 @@ body {
     cursor: pointer;
 }
 #start-btn {
-    display: flex;
     font-size: 20px;
     background: seashell;
     padding: 5px 10px;
@@ -63,4 +62,6 @@ body {
 }
 /* End Intro Box and Start Button Styles*/
 
-
+.hide {
+    display: none;
+}

@@ -13,9 +13,10 @@ function startGame() {
     console.log('intro')
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
+    currentQuestion = 0
     questionContainerEl.classList.remove('hide')
-    introContainerEl.classList.remove('hide')
+    introContainerEl.classList.add('hide')
+    optionButtonEl.classList.remove('hide')
     setNextQuestion()
 }
 //time starts when Get Started is pushed
@@ -38,11 +39,11 @@ function countdown() {
 //show the next question
 function setNextQuestion () {
   resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
-  
+  showQuestion(shuffledQuestions[currentQuestion])
 }
 //displays question
 function showQuestion(question) {
+  console.log(question)
     questionEl.innerText = question.question
     question.options.forEach(option => {
         var button = document.createElement('button')
@@ -57,7 +58,6 @@ function showQuestion(question) {
 }
 
 function resetState() {
-  optionButtonEl.classList.add('hide')
   while (optionButtonEl.firstChild) {
     optionButtonEl.removeChild
     (optionButtonEl.firstChild)
@@ -67,14 +67,21 @@ function resetState() {
 function selectOption(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
+  console.log (selectedButton, correct)
   setStatusClass(document.body, correct)
   Array.from(optionButtonEl.children). forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  currentQuestion++
+  if (currentQuestion === questions.length) {
+    endGame()
+  } else {
+  setNextQuestion()
+  }
 }
 
 function setStatusClass(element, correct) {
-  clearStatusClass(element)
+  clearStatusClass(element, correct)
   if (correct) {
     element.classList.add('correct')
     
@@ -84,7 +91,7 @@ function setStatusClass(element, correct) {
   }
 }
 
-function clearStatusClass(element) {
+function clearStatusClass(element, correct) {
   if (correct) {
     element.classList.remove('correct')
   } else {
@@ -152,4 +159,7 @@ var questions = [
     ]
 }
 ]
+function endGame() {
+  
+}
 startButton.onclick = countdown
