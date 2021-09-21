@@ -29,7 +29,9 @@ body {
 }
 
 #option-btn {
-    width: 80%;
+    width: 200px;
+    height: 200px;
+    margin-top: 50px; 
 }
 
 .btn-grid {

@@ -4,7 +4,9 @@ var questionContainerEl = document.getElementById('q-container');
 var questionEl = document.getElementById('question');
 var optionButtonEl = document.getElementById('option-btn');
 var timerEl = document.getElementById('time');
-var scoreEl = document.getElementById('score')
+var highScoreEl = document.getElementById('high-score')
+var yourScoreEl = document.getElementById('you-score')
+var yourInitialsEl = document.getElementById('initials')
 
 let shuffledQuestions, currentQuestion
 
@@ -18,6 +20,7 @@ function startGame() {
     questionContainerEl.classList.remove('hide')
     introContainerEl.classList.add('hide')
     optionButtonEl.classList.remove('hide')
+    yourInitialsEl.classList.add('hide')
     setNextQuestion()
 }
 //time starts when Get Started is pushed
@@ -40,7 +43,7 @@ function countdown() {
 //show the next question
 function setNextQuestion () {
   resetState()
-  showQuestion(shuffledQuestions[currentQuestion])
+  showQuestion (shuffledQuestions[currentQuestion])
 }
 //displays question
 function showQuestion(question) {
@@ -165,7 +168,9 @@ function endGame() {
   questionEl.classList.add('hide')
   optionButtonEl.classList.add('hide')
   timerEl.classList.add('hide')
-  scoreEl.classList.add('hide')
+  highScoreEl.classList.add('hide')
+  yourScoreEl.classList.remove('hide')
+  yourInitialsEl.classList.remove('hide')
 }
 
 startButton.onclick = countdown
