@@ -4,6 +4,7 @@ var questionContainerEl = document.getElementById('q-container');
 var questionEl = document.getElementById('question');
 var optionButtonEl = document.getElementById('option-btn');
 var timerEl = document.getElementById('time');
+var scoreEl = document.getElementById('score')
 
 let shuffledQuestions, currentQuestion
 
@@ -160,6 +161,11 @@ var questions = [
 }
 ]
 function endGame() {
-  
+  currentQuestion = 5
+  questionEl.classList.add('hide')
+  optionButtonEl.classList.add('hide')
+  timerEl.classList.add('hide')
+  scoreEl.classList.add('hide')
 }
+
 startButton.onclick = countdown
