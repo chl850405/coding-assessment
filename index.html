@@ -16,23 +16,27 @@
       <p>If you answer a question incorrectly, 15 seconds will be subtracted from the clock.</p>
       <p>Once all questions are answered or if time runs out the game is over.</p> 
     </div>
-  
+
+    <h2 class="hide">HIGH SCORES</h2>
+    <ol id=”highScores”></ol>
     <div id="q-container" class="hide">
-      <div id="high-score" class=" high-score">View High Score</div>
       <div id="question">Question</div>
       <div id="time" class="time">Time</div>
       <div id="option-btn" class="btn-grid">
-      <button class="btn">Option</button>
-      <button class="btn">Option</button>
-      <button class="btn">Option</button>
-      <button class="btn">Option</button>
+      <input class="btn">Option</input>
+      <input class="btn">Option</input>
+      <input class="btn">Option</input>
+      <input class="btn">Option</input>
       </div>
   </div>
+
   <button id="start-btn" >Get Started</button>
 
-  <div id="your-score" class="hide">Your Score</div>
-
-  <div id="initials" class="hide">Your Initials</div>
+  <div id="initials" class="hide">
+    <label for="initials">Your Initials:</label>
+    <input type="text" id="initials">
+    <button type="button" class="btn btn-primary btn-lg" id="submitInitials">Submit</button>
+  </div>
   
 </body>
 <script src="./js/script.js"></script>
