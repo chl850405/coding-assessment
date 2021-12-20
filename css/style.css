@@ -67,9 +67,3 @@ body {
 .hide {
     display: none;
 }
-
-#your-score,
-#initials {
-    justify-content: space-evenly;
-    text-align: center;
-}

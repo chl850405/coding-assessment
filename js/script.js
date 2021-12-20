@@ -8,6 +8,7 @@ var highScoreEl = document.getElementById("highScores");
 var yourInitialsEl = document.getElementById("initials");
 let shuffledQuestions, currentQuestion;
 startButton.addEventListener("click", startGame);
+var HIGH_SCORES = "HIGH_SCORES"
 
 var timeLeft = 60;
 var gameScore = 0;
@@ -34,12 +35,15 @@ function countdown() {
     } else if (timeLeft === 1) {
       timerEl.textContent = timeLeft + "seconds remaining";
       timeLeft--;
-    } else {
+    } else  if (timeLeft <= 0) {
+      endGame();
+    }else {
       timerEl.textContent = "";
       clearInterval(timeInterval);
     }
   }, 1000);
 }
+
 //show the next question
 function setNextQuestion() {
   resetState();
@@ -171,37 +175,21 @@ var questions = [
 ];
 
 
-function checkHighScore(score) {
-  var highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-  var lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
-  
-  if (score > lowestScore) {
-    saveHighScore(score, highScores); 
-    showHighScores(); 
+
+function saveHighScore() {
+  var initials = prompt('You got a high score! Enter initials:');
+  var newScore = {  
+    score: timeLeft,
+    initials: initials
+  };
+var highScores = [];
+  if (initials !== "") {
+    highScores.push(newScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    var scores = JSON.parse(localStorage.getItem("highScores")) ?? [];
+    console.log (scores)
+
   }
-}
-
-function showHighScores() {
-  var highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-  var highScoreList = document.getElementById(HIGH_SCORES);
-  
-  highScoreList.innerHTML = highScores
-    .map((score) => `<li>${score.score} - ${score.name}`)
-    .join('');
-}
-
-
-function saveHighScore(score, highScores) {
-  const name = prompt('You got a highscore! Enter name:');
-  const newScore = { score, name };
-  
-  highScores.push(newScore);
-
-  highScores.sort((a, b) => b.score - a.score);
-  
-  highScores.splice(NO_OF_HIGH_SCORES);
-  
-  localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
 };
 
 function endGame() {
@@ -212,10 +200,9 @@ function endGame() {
   // highScoreEl.classList.add("hide");
   timerEl.classList.add("hide");
   yourInitialsEl.classList.remove("hide");
-
-checkHighScore();
-showHighScores();
-saveHighScore(score, highScores)
+saveHighScore()
 }
 
-startButton.onclick = countdown
+
+startButton.onclick = countdown;
+submitButton.onclick = saveHighscore;
