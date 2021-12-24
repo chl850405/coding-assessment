@@ -1,5 +1,7 @@
 # coding-assessment
 
+* A multiple question quiz containing questions about web development.
+
 * Try to answer all the questions before time runs out.
 text If you answer a question incorrectly, 15 seconds will be subtracted from the clock.
 Once all questions are answered or if time runs out the game is over.
@@ -40,3 +42,7 @@ Once all questions are answered or if time runs out the game is over.
     margin-top: 10px
     cursor: pointer
     border: 1px solid purple
+
+https://chl850405.github.io/coding-assessment/ (Links to an external site.) 
+
+![](./assets/gif/mock.gif)
