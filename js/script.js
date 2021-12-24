@@ -177,12 +177,13 @@ var questions = [
 
 
 function saveHighScore() {
+
   var initials = prompt('You got a high score! Enter initials:');
   var newScore = {  
     score: timeLeft,
     initials: initials
   };
-var highScores = [];
+  var highScores = [];
   if (initials !== "") {
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
@@ -200,9 +201,8 @@ function endGame() {
   // highScoreEl.classList.add("hide");
   timerEl.classList.add("hide");
   yourInitialsEl.classList.remove("hide");
-saveHighScore()
+  saveHighScore()
 }
 
 
 startButton.onclick = countdown;
-submitButton.onclick = saveHighscore;
