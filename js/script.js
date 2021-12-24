@@ -177,6 +177,7 @@ var questions = [
 
 
 function saveHighScore() {
+  preventDefault();
 
   var initials = prompt('You got a high score! Enter initials:');
   var newScore = {  
