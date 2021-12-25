@@ -1,4 +1,4 @@
-# coding-assessment
+# coding-assessment..
 
 * A multiple question quiz containing questions about web development.
 
@@ -6,7 +6,7 @@
 text If you answer a question incorrectly, 15 seconds will be subtracted from the clock.
 Once all questions are answered or if time runs out the game is over.
 
-## made with HTML CSS and JavaScript
+## made with HTML CSS and JavaScript..
 
 ## CSS
 
