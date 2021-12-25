@@ -172,27 +172,32 @@ var questions = [
       { text: "body {}", correct: false },
     ],
   },
+  {
+    question: "Which is not valid data type in Javascript",
+    options: [
+      { text: "undifined", correct: false },
+      { text: "boolean", correct: false },
+      { text: "float", correct: true },
+      { text: "number", correct: false },
+    ],
+  },
 ];
 
-
-
 function saveHighScore() {
-  preventDefault();
 
-  var initials = prompt('You got a high score! Enter initials:');
-  var newScore = {  
+  var initials = prompt("You got a high score! Enter initials:");
+  var newScore = {
     score: timeLeft,
-    initials: initials
+    initials: initials,
   };
   var highScores = [];
   if (initials !== "") {
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     var scores = JSON.parse(localStorage.getItem("highScores")) ?? [];
-    console.log (scores)
-
+    console.log(scores);
   }
-};
+}
 
 function endGame() {
 
