@@ -183,7 +183,8 @@ var questions = [
   },
 ];
 
-function saveHighScore() {
+function saveHighScore(score) {
+  // (score).preventDefault();
 
   var initials = prompt("You got a high score! Enter initials:");
   var newScore = {

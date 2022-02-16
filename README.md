@@ -1,48 +1,35 @@
-# coding-assessment..
+# Coding Assessment
 
-* A multiple question quiz containing questions about web development.
+## Description 
+A multiple question quiz containing questions about web development. HTML CSS and JavaScript
 
-* Try to answer all the questions before time runs out.
-text If you answer a question incorrectly, 15 seconds will be subtracted from the clock.
-Once all questions are answered or if time runs out the game is over.
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-## made with HTML CSS and JavaScript..
+## Installation 
+The user should clone the repository from GitHub. Once updates are made you can commit any changes and deploy to github.
 
-## CSS
+## Usage 
+Try to answer all the questions before time runs out.
+text If you answer a question incorrectly, 15 seconds will be subtracted from the clock. Once all questions are answered or if time runs out the game is over.
 
-* body 
-    padding: 0
-    margin: 0
-    display: flex
-    width: 100vw
-    height: 100vh
-    justify-content: center
-    align-items: center
+![](./assets/gif/mock.gif) Coding Assesment
 
-* container 
-    width: 800px
-    max-width: 80%
-    height: 400px
-    max-height: 80%
-    background-color: seashell
-    box-shadow: 0 0 10px 2 px
-    border: 2px solid blueviolet
-    border-radius: 5px
+https://chl850405.github.io/coding-assessment/
 
-* option-btn 
-    width: 80%
+## License 
+This project is not licensed
 
-* start-btn 
-    display: flex
-    font-size: 20px
-    background: seashell
-    padding: 5px 10px
-    border-radius: 5px
-    margin: 0 auto
-    margin-top: 10px
-    cursor: pointer
-    border: 1px solid purple
+## Contributing 
+Contributors should read the installation section. 
 
-https://chl850405.github.io/coding-assessment/ (Links to an external site.) 
+## Tests
+There are no tests for this application. 
 
-![](./assets/gif/mock.gif)
+## Questions
+If you have any questions about this projects, please contact me directly at christimarchetti@gmail.com. You can view more of my projects at https://github.com/chl850405.
